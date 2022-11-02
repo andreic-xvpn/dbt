@@ -13,4 +13,4 @@ jobs:
       - name: Install SQLFluff
         run: "pip install sqlfluff"
       - name: Lint models
-        run: "sqlfluff lint --format github-annotation --annotation-level warning models"
+        run: "sqlfluff lint models"
