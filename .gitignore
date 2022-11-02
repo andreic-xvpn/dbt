@@ -1,4 +1,8 @@
-
+.sqlfluff
 target/
 dbt_packages/
+dbt_modules/
 logs/
+.DS_Store
+Pipfile.lock
+Pipfile
