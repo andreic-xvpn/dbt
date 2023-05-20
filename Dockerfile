@@ -2,10 +2,11 @@ FROM ubuntu:22.04
 
 RUN apt-get update 
 # RUN apt-get upgrade -y
-RUN apt-get install -y build-essential python3 \
-    && apt-get install -y python3-pip \
-    && apt-get install -y git vim
-# RUN pip3 install --upgrade pip
+RUN apt-get install -y build-essential python3
+RUN apt-get install -y python3-pip
+# RUN  apt-get install -y git vim
+
+RUN pip3 install --upgrade pip
 
 # add dbt profiles 
 RUN mkdir /root/.dbt
@@ -24,7 +25,6 @@ RUN pip3 install -r requirements.txt --no-deps
 ENV DBT_PROFILES_DIR="/app/.dbt"
 
 # if you want to add to PATH environment variable
-
 
 # EXPOSE 8080
 ENTRYPOINT ["dbt"]
