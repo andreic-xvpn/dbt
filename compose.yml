@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+  dbt:
+    image: taz002dev/dbt:latest
+    depends_on:
+      - db
+    # entrypoint: sleep 600
+    # tty: true               # equivalent for -t
+    # stdin_open: true        # equivalent for -i
+    volumes: 
+      - /Users/andy/git/dbt/containerlogs:/app/logs
+      - /Users/andy/git/dbt/.dbt:/app/.dbt
+    # command: cp app/logs/dbt.log 
+    # command: bash sleep 600
+    command: run
